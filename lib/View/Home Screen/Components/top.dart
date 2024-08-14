@@ -37,10 +37,21 @@ class TopNews extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(8),
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                newsController.newsModal!.articles[index].urlToImage))),
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: (newsController
+                                            .newsModal!
+                                            .articles[index]
+                                            .urlToImage ==
+                                            '')
+                                            ? AssetImage(
+                                            'assets/news-time-high-resolution-logo-white.png')
+                                            : NetworkImage(newsController
+                                            .newsModal!
+                                            .articles[index]
+                                            .urlToImage),
+                                      ),
+                                    ),
                                   ),
                                   SizedBox(
                                     height: h * 0.02,

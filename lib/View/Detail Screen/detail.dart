@@ -85,7 +85,9 @@ class DetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     fontSize: w * 0.06),
               ),
-              SizedBox(height: h*0.02,),
+              SizedBox(
+                height: h * 0.02,
+              ),
               Text(
                 newsController
                     .newsModal!.articles[newsController.selectedN].description,
@@ -95,7 +97,9 @@ class DetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     fontSize: w * 0.04),
               ),
-              SizedBox(height: h*0.018,),
+              SizedBox(
+                height: h * 0.018,
+              ),
               Text(
                 'Author : ${newsController.newsModal!.articles[newsController.selectedN].author}',
                 textAlign: TextAlign.center,
@@ -104,7 +108,9 @@ class DetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     fontSize: w * 0.05),
               ),
-              SizedBox(height: h*0.02,),
+              SizedBox(
+                height: h * 0.02,
+              ),
               Container(
                 height: 230,
                 width: double.infinity,
@@ -115,31 +121,46 @@ class DetailScreen extends StatelessWidget {
                         image: NetworkImage(newsController.newsModal!
                             .articles[newsController.selectedN].urlToImage))),
               ),
-              SizedBox(height: h*0.02,),
-              Text(newsController.newsModal!.articles[newsController.selectedN].content,textAlign: TextAlign.center,
+              SizedBox(
+                height: h * 0.02,
+              ),
+              Text(
+                newsController
+                    .newsModal!.articles[newsController.selectedN].content,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w400,
-                    fontSize: w * 0.045),),
-              SizedBox(height: h*0.02,),
+                    fontSize: w * 0.045),
+              ),
+              SizedBox(
+                height: h * 0.02,
+              ),
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    newsController.newsModal!.articles[newsController.selectedN].url;
+                    newsController.urlLaunch(newsController
+                        .newsModal!.articles[newsController.selectedN].url);
                   },
                   child: Container(
-                    height: h*0.045,
-                    width: w*0.3,
+                    height: h * 0.045,
+                    width: w * 0.3,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     alignment: Alignment.center,
-                    child: Text('SHOW MORE',style: TextStyle(fontSize: w*0.04,fontWeight: FontWeight.w500),),
+                    child: Text(
+                      'SHOW MORE',
+                      style: TextStyle(
+                          fontSize: w * 0.04, fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: h*0.02,),
+              SizedBox(
+                height: h * 0.02,
+              ),
             ],
           ),
         ),

@@ -36,57 +36,74 @@ class BusinessNews extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      ...List.generate(articles.length, (index) => Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              newsController.selectedN = index;
-                              Navigator.of(context).pushNamed('/detail');
-                            },
-                            child: Container(
-                              child: Column(
+                      ...List.generate(
+                          articles.length,
+                          (index) => Column(
                                 children: [
-                                  Container(
-                                    height: h * 0.1,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey,
-                                      borderRadius: BorderRadius.circular(8),
+                                  GestureDetector(
+                                    onTap: () {
+                                      newsController.selectedN = index;
+                                      Navigator.of(context)
+                                          .pushNamed('/detail');
+                                    },
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: h * 0.23,
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: Colors.grey,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: (newsController
+                                                            .newsModal!
+                                                            .articles[index]
+                                                            .urlToImage ==
+                                                        '')
+                                                    ? AssetImage(
+                                                        'assets/news-time-high-resolution-logo-white.png')
+                                                    : NetworkImage(
+                                                        newsController
+                                                            .newsModal!
+                                                            .articles[index]
+                                                            .urlToImage),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(height: h * 0.02),
+                                          Text(
+                                            articles[index].author,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: w * 0.05,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                          SizedBox(height: h * 0.017),
+                                          Text(
+                                            '- ${articles[index].title}',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: w * 0.04,
+                                            ),
+                                          ),
+                                          SizedBox(height: h * 0.016),
+                                          Divider(
+                                            height: h * 0.0005,
+                                            color: Colors.grey,
+                                          ),
+                                          SizedBox(height: h * 0.014),
+                                        ],
+                                      ),
                                     ),
-                                    alignment: Alignment.center,
-                                    child: Text('Business News',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 44),),
                                   ),
-                                  SizedBox(height: h * 0.02),
-                                  Text(
-                                    articles[index].author,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: w * 0.05,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(height: h * 0.017),
-                                  Text(
-                                    '- ${articles[index].title}',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: w * 0.04,
-                                    ),
-                                  ),
-                                  SizedBox(height: h * 0.016),
-                                  Divider(
-                                    height: h * 0.0005,
-                                    color: Colors.grey,
-                                  ),
-                                  SizedBox(height: h * 0.014),
                                 ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      )),
+                              )),
                     ],
                   ),
                 ),

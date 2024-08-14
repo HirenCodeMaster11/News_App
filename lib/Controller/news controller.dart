@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Api Helper/api helper.dart';
 import '../Modal/News Modal.dart';
@@ -13,6 +14,12 @@ class NewsController extends GetxController
     selectedN;
     update();
   }
+
+  void urlLaunch(String url){
+    final Uri uri = Uri.parse(url);
+    launchUrl(uri, mode: LaunchMode.inAppWebView);
+  }
+
   Future<NewsModal?> BusinessMap()
   async {
     final data = await apiHelper.fetchApiBusiness();
@@ -43,4 +50,5 @@ class NewsController extends GetxController
     newsModal = NewsModal.fromJson(data);
     return newsModal;
   }
+
 }
